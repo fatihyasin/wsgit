@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -253,7 +254,7 @@ public class Wsgit extends javax.swing.JFrame {
             argList.add(packageTextField.getText());
         }
         if (!extraArgsTextField.getText().isBlank()) {
-            argList.add(extraArgsTextField.getText());
+            argList.addAll(Arrays.stream(extraArgsTextField.getText().trim().split("\\s+")).toList());
         }
         if (clientJarCheckBox.isSelected() && !clientJarTextField.getText().isBlank()) {
             argList.add("-clientjar");
