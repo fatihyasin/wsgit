@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -254,7 +256,7 @@ public class Wsgit extends javax.swing.JFrame {
             argList.add(packageTextField.getText());
         }
         if (!extraArgsTextField.getText().isBlank()) {
-            argList.addAll(Arrays.stream(extraArgsTextField.getText().trim().split("\\s+")).toList());
+            argList.addAll(Arrays.stream(extraArgsTextField.getText().trim().split("\\s+")).collect(Collectors.toList()));
         }
         if (clientJarCheckBox.isSelected() && !clientJarTextField.getText().isBlank()) {
             argList.add("-clientjar");
